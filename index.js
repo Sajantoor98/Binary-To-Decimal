@@ -46,7 +46,7 @@ function checkNumValue() {
 
 // Decimal to binary function
 function binary(num) {
-  // initializes the string and array. 
+  // initializes the string and array.
   var binNum = "";
   var binaryVal = [];
 
@@ -58,7 +58,14 @@ function binary(num) {
 
   // Reverse the binary digits to proper order.
   for (var i = (binaryVal.length - 1); i >= 0; i--) {
-    binNum = binNum + binaryVal[i];
+    // Arranges the bits properly.
+    if (((i + 1) % 4) == 0) {
+      console.log(i);
+      // adds the space in between 4 bits 
+      binNum =  binNum + " " + binaryVal[i];
+    } else {
+      binNum = binNum + binaryVal[i];
+    }
   }
 
   document.getElementById('DecimalToBinary').innerText = binNum;
